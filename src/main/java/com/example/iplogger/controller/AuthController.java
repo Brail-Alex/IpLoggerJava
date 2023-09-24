@@ -40,7 +40,7 @@ public class AuthController {
             var token = tokenService.generateToken(newUser);
 
             return ResponseEntity.ok(new LoginResponseDto(token));
-        } catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }

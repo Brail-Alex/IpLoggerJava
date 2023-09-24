@@ -32,7 +32,7 @@ public class SpringSecurityConfig {
     }
 
     /**
-     *  Добавил JDBC аунтефикацию
+     * Добавил JDBC аунтефикацию
      */
     @Autowired
     public void configureAuthentication(AuthenticationManagerBuilder auth) throws Exception {
@@ -59,13 +59,10 @@ public class SpringSecurityConfig {
         return httpSecurity.build();
     }
 
-    // TODO: Если удалить это дерьмо, то ошибка будет другая, мб есть варик решить по другому?
-        @Bean
-        public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
-            return authenticationConfiguration.getAuthenticationManager();
-        }
-
-
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
+    }
 
 
 }
