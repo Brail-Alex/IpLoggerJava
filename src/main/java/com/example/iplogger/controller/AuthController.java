@@ -36,8 +36,8 @@ public class AuthController {
             String encryptedPassword = new BCryptPasswordEncoder().encode(data.getPassword());
             UserEntity newUser = new UserEntity(data.getUsername(), encryptedPassword);
             userService.createUser(newUser);
-            UserEntity user = userService.findByUsername(data.getUsername());
-            var token = tokenService.generateToken(user);
+
+            var token = tokenService.generateToken(newUser);
 
             return ResponseEntity.ok(new LoginResponseDto(token));
         } catch (Exception e){
